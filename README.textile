@@ -1,0 +1,9 @@
+h1. GtfsAlert
+
+Il s'agit d'une petite application Android permettant de voir les GTFS disponibles sur data.keolis-rennes.
+
+h1. License
+
+L'ensemble du code source est sous "GPL v3":http://www.gnu.org/licenses/gpl-3.0.html.
+
+
