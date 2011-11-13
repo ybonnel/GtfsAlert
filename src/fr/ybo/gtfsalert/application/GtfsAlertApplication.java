@@ -16,7 +16,9 @@ package fr.ybo.gtfsalert.application;
 
 
 import android.app.Application;
+import android.content.Intent;
 import fr.ybo.gtfsalert.database.GtfsAlertDatabase;
+import fr.ybo.gtfsalert.services.UpdateTimeService;
 
 public class GtfsAlertApplication extends Application {
 
@@ -30,5 +32,6 @@ public class GtfsAlertApplication extends Application {
     public void onCreate() {
         super.onCreate();
         database = new GtfsAlertDatabase(this);
+        startService(new Intent(UpdateTimeService.ACTION_UPDATE));
     }
 }

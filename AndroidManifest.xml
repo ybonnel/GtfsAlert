@@ -15,6 +15,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GtfsDetail" android:configChanges="orientation|keyboardHidden" />
+        <service
+                android:name=".services.UpdateTimeService"
+                android:label="GtfsAlertUpdateTimeService">
+
+            <intent-filter>
+                <action android:name="fr.ybo.gtfsalert.action.UPDATE"/>
+            </intent-filter>
+        </service>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

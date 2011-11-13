@@ -2,4 +2,5 @@
     <string name="app_name">Gtfs Alert</string>
     <string name="erreurReseau">Une erreur réseau est survenue</string>
     <string name="loadingInfo">Chargement des informations en cours</string>
+    <string name="notifText">Nouveau GTFS disponible!</string>
 </resources>
