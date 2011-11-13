@@ -12,30 +12,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package fr.ybo.gtfsalert.application;
+package fr.ybo.gtfsalert.services;
 
 
-import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import fr.ybo.gtfsalert.database.GtfsAlertDatabase;
-import fr.ybo.gtfsalert.services.UpdateTimeService;
 
-public class GtfsAlertApplication extends Application {
-
-    private static GtfsAlertDatabase database = null;
-
-    public static GtfsAlertDatabase getDatabase() {
-        return database;
-    }
-
+public class UpdateTimeServiceReceiver extends BroadcastReceiver {
     @Override
-    public void onCreate() {
-        super.onCreate();
-        database = new GtfsAlertDatabase(this);
-        startService(new Intent(UpdateTimeService.ACTION_UPDATE));
-        PackageManager pm = getPackageManager();
+    public void onReceive(Context context, Intent intent) {
+        context.startService(new Intent(UpdateTimeService.ACTION_UPDATE));
+        PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(new ComponentName("fr.ybo.gtfsalert", ".services.UpdateTimeService"),
                 PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
     }

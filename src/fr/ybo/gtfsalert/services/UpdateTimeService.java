@@ -18,9 +18,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.IBinder;
 import fr.ybo.gtfsalert.R;
 import fr.ybo.gtfsalert.activity.GtfsDetail;
@@ -52,6 +54,9 @@ public class UpdateTimeService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        PackageManager pm = getPackageManager();
+        pm.setComponentEnabledSetting(new ComponentName("fr.ybo.gtfsalert", ".services.UpdateTimeService"),
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
         registerReceiver(mTimeChangedReceiver, sIntentFilter);
     }
 

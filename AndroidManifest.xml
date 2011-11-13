@@ -23,7 +23,13 @@
                 <action android:name="fr.ybo.gtfsalert.action.UPDATE"/>
             </intent-filter>
         </service>
+        <receiver android:name=".services.UpdateTimeServiceReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
 </manifest>
