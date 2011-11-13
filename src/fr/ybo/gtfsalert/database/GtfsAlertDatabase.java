@@ -15,6 +15,7 @@ package fr.ybo.gtfsalert.database;
 
 import android.content.Context;
 import fr.ybo.database.DataBaseHelper;
+import fr.ybo.gtfsalert.database.modele.GtfsInfos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +28,9 @@ public class GtfsAlertDatabase extends DataBaseHelper {
     private static final int DATABASE_VERSION = 1;
 
     private static final List<Class<?>> LIST_CLASSES_DATABASE = new ArrayList<Class<?>>();
+    static {
+        LIST_CLASSES_DATABASE.add(GtfsInfos.class);
+    }
 
     public GtfsAlertDatabase(Context context) {
         super(context, LIST_CLASSES_DATABASE, DATABASE_NAME, DATABASE_VERSION);

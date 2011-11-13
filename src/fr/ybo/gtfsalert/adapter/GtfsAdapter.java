@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import fr.ybo.gtfsalert.R;
-import fr.ybo.opendata.rennes.modele.bus.GtfsFile;
+import fr.ybo.gtfsalert.database.modele.GtfsInfos;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -28,16 +28,16 @@ import java.util.List;
 /**
  * Adapteur pour les GtfsFiles..
  */
-public class GtfsAdapter extends ArrayAdapter<GtfsFile> {
+public class GtfsAdapter extends ArrayAdapter<GtfsInfos> {
 
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 
-    private final List<GtfsFile> files;
+    private final List<GtfsInfos> infos;
     private final LayoutInflater inflater;
 
-    public GtfsAdapter(Context context, List<GtfsFile> objects) {
+    public GtfsAdapter(Context context, List<GtfsInfos> objects) {
         super(context, R.layout.gtfsfile, objects);
-        files = objects;
+        infos = objects;
         inflater = LayoutInflater.from(getContext());
     }
 
@@ -48,7 +48,7 @@ public class GtfsAdapter extends ArrayAdapter<GtfsFile> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View convertView1 = convertView;
-        GtfsFile file = files.get(position);
+        GtfsInfos info = infos.get(position);
         GtfsAdapter.ViewHolder holder;
         if (convertView1 == null) {
             convertView1 = inflater.inflate(R.layout.gtfsfile, null);
@@ -59,7 +59,7 @@ public class GtfsAdapter extends ArrayAdapter<GtfsFile> {
             holder = (GtfsAdapter.ViewHolder) convertView1.getTag();
         }
 
-        holder.gtfsTitre.setText("GTFS du " + SIMPLE_DATE_FORMAT.format(file.getDate()));
+        holder.gtfsTitre.setText("GTFS du " + SIMPLE_DATE_FORMAT.format(info.getDateGtfs()));
         return convertView1;
     }
 }

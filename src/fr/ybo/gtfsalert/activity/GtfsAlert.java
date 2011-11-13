@@ -22,31 +22,28 @@ import android.view.View;
 import android.widget.AdapterView;
 import fr.ybo.gtfsalert.R;
 import fr.ybo.gtfsalert.adapter.GtfsAdapter;
+import fr.ybo.gtfsalert.database.modele.GtfsInfos;
 import fr.ybo.gtfsalert.util.TacheAvecProgressDialog;
-import fr.ybo.opendata.rennes.Gtfs;
 import fr.ybo.opendata.rennes.KeolisReseauException;
-import fr.ybo.opendata.rennes.modele.bus.GtfsFile;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GtfsAlert extends ListActivity {
 
-    private List<GtfsFile> files = new ArrayList<GtfsFile>();
+    private List<GtfsInfos> infos = new ArrayList<GtfsInfos>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.liste);
-        setListAdapter(new GtfsAdapter(this, files));
+        setListAdapter(new GtfsAdapter(this, infos));
         new TacheAvecProgressDialog(this, getString(R.string.loadingInfo)){
 
             @Override
             protected void myDoBackground() throws KeolisReseauException {
-                Gtfs gtfs = new Gtfs();
-                List<GtfsFile> filesTmp = gtfs.getUpdates();
-                files.addAll(filesTmp);
+                infos.addAll(GtfsInfos.getInfos());
             }
 
             @Override
@@ -57,9 +54,9 @@ public class GtfsAlert extends ListActivity {
         }.execute((Void) null);
         getListView().setOnItemClickListener(new AdapterView.OnItemClickListener(){
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                GtfsFile file = (GtfsFile) adapterView.getItemAtPosition(position);
+                GtfsInfos info = (GtfsInfos) adapterView.getItemAtPosition(position);
                 Intent intent = new Intent(GtfsAlert.this, GtfsDetail.class);
-                intent.putExtra("gtfsFile", file);
+                intent.putExtra("info", info);
                 startActivity(intent);
             }
         });

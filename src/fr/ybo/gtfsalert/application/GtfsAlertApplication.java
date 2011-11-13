@@ -20,9 +20,9 @@ import fr.ybo.gtfsalert.database.GtfsAlertDatabase;
 
 public class GtfsAlertApplication extends Application {
 
-    private GtfsAlertDatabase database = null;
+    private static GtfsAlertDatabase database = null;
 
-    public GtfsAlertDatabase getDatabase() {
+    public static GtfsAlertDatabase getDatabase() {
         return database;
     }
 
