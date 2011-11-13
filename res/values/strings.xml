@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">GtfsAlert</string>
+    <string name="app_name">Gtfs Alert</string>
+    <string name="erreurReseau">Une erreur réseau est survenue</string>
+    <string name="loadingInfo">Chargement des informations en cours</string>
 </resources>
