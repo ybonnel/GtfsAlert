@@ -2,3 +2,5 @@
 *.ipr
 *.iws
 gen/*
+bin
+out
