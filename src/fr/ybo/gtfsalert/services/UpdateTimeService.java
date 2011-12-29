@@ -14,6 +14,8 @@
 
 package fr.ybo.gtfsalert.services;
 
+import java.util.Calendar;
+
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -27,9 +29,7 @@ import android.os.IBinder;
 import fr.ybo.gtfsalert.R;
 import fr.ybo.gtfsalert.activity.GtfsDetail;
 import fr.ybo.gtfsalert.database.modele.GtfsInfos;
-import fr.ybo.opendata.rennes.KeolisReseauException;
-
-import java.util.Calendar;
+import fr.ybo.opendata.rennes.exceptions.KeolisReseauException;
 
 public class UpdateTimeService extends Service {
 

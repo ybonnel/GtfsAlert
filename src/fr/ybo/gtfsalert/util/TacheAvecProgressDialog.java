@@ -18,7 +18,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 import fr.ybo.gtfsalert.R;
-import fr.ybo.opendata.rennes.KeolisReseauException;
+import fr.ybo.opendata.rennes.exceptions.KeolisReseauException;
 
 public abstract class TacheAvecProgressDialog extends AsyncTask<Void, Void, Void> {
 

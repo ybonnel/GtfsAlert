@@ -14,19 +14,19 @@
 
 package fr.ybo.gtfsalert.database.modele;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import fr.ybo.database.annotation.Column;
 import fr.ybo.database.annotation.Entity;
 import fr.ybo.database.annotation.PrimaryKey;
 import fr.ybo.gtfsalert.application.GtfsAlertApplication;
 import fr.ybo.opendata.rennes.Gtfs;
-import fr.ybo.opendata.rennes.KeolisReseauException;
-import fr.ybo.opendata.rennes.modele.bus.GtfsFeedInfo;
-import fr.ybo.opendata.rennes.modele.bus.GtfsFile;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import fr.ybo.opendata.rennes.exceptions.KeolisReseauException;
+import fr.ybo.opendata.rennes.modele.gtfs.GtfsFeedInfo;
+import fr.ybo.opendata.rennes.modele.gtfs.GtfsFile;
 
 @Entity
 public class GtfsInfos implements Serializable {

@@ -15,6 +15,9 @@
 package fr.ybo.gtfsalert.activity;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,10 +27,7 @@ import fr.ybo.gtfsalert.R;
 import fr.ybo.gtfsalert.adapter.GtfsAdapter;
 import fr.ybo.gtfsalert.database.modele.GtfsInfos;
 import fr.ybo.gtfsalert.util.TacheAvecProgressDialog;
-import fr.ybo.opendata.rennes.KeolisReseauException;
-
-import java.util.ArrayList;
-import java.util.List;
+import fr.ybo.opendata.rennes.exceptions.KeolisReseauException;
 
 public class GtfsAlert extends ListActivity {
 
